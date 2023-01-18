@@ -15,7 +15,8 @@ workflows:
         \ driver install --source=npm appium-flutter-driver\nappium driver install\
         \ xcuitest\nappium driver list\ncd example/nodejs\nnpm install\n"
       - name : Launch Appium 
-        script : appium --base-path /wd/hub
+        script : |
+          appium --base-path /wd/hub
       - APPIUM_OS=ios npm start
     artifacts:
       - example/flutter_app_under_test/*.snap

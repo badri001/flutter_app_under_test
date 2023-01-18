@@ -11,11 +11,18 @@ workflows:
       cocoapods: default
     scripts:
       - name : Install dependencies 
-        script : "pwd \nls\nnpm install -g appium@next \nnpm install -g appium-doctor \nappium\
-        \ driver install --source=npm appium-flutter-driver\nappium driver install\
-        \ xcuitest\nappium driver list\ncd example/nodejs\nnpm install\n"
+        script : 
+        - pwd 
+        - ls
+        - npm install -g appium@next 
+        - npm install -g appium-doctor 
+        - appium driver install --source=npm appium-flutter-driver
+        - appium driver install xcuitest
+        - appium driver list 
+        - cd example/nodejs
+        - npm install
       - cd example/flutter_app_under_test && flutter packages pub get
-       - name : Launch Appium 
+      - name : Launch Appium 
         script : nohup appium --base-path /wd/hub
       - APPIUM_OS=ios npm start
     artifacts:

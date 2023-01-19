@@ -16,11 +16,14 @@ const osSpecificOps =
     : process.env.APPIUM_OS === 'ios'
     ? {
         'appium:platformName': 'iOS',
-        'appium:platformVersion': '15.5',
-        'appium:deviceName': 'iPhone 13',
+        'appium:platformVersion': '16.2',
+        'appium:deviceName': 'iPhone 14 pro max',
+        "appium:udid": "576EE794-CD9A-4900-AC8D-BAD4E46D7757",
+        // "appium:useNewWDA" : true,
+        // "appium:usePrebuiltWDA" : true,
         'appium:connectionRetryTimeout': 60000,
         'appium:noReset': true,
-        'appium:app': __dirname + '/../../apps/ios-sim-debug.zip' // download local to run faster and save bandwith
+        'appium:app': "/Users/builder/clone/apps/ios-sim-debug.zip" // download local to run faster and save bandwith
         // app: 'https://github.com/truongsinh/appium-flutter-driver/releases/download/v0.0.4/ios-sim-debug.zip',
       }
     : {};

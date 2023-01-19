@@ -16,6 +16,7 @@ workflows:
       - cd example/flutter_app_under_test && flutter packages pub get
       - name : Launch Appium 
         script : nohup appium --base-path /wd/hub & cd example/nodejs 
+      - flutter emulators --launch ios
       - cd example/nodejs && APPIUM_OS=ios npm start
     artifacts:
       - example/flutter_app_under_test/*.snap

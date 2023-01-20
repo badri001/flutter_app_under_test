@@ -14,7 +14,7 @@ workflows:
         script : | 
             npm install -g appium@next 
             npm install -g appium-doctor 
-            npm install wd
+            npm install webdriverio
             appium driver install --source=npm appium-flutter-driver
             appium driver install xcuitest
             appium driver list 

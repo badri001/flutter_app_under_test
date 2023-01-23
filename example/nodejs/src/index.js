@@ -17,8 +17,8 @@ const osSpecificOps =
     ? {
         'appium:platformName': 'iOS',
         'appium:platformVersion': '16.2',
-        'appium:deviceName': 'iPhone 14 pro max',
-        "appium:udid": "576EE794-CD9A-4900-AC8D-BAD4E46D7757",
+        'appium:deviceName': 'iPhone SE (3rd generation)',
+        // "appium:udid": "576EE794-CD9A-4900-AC8D-BAD4E46D7757",
         // "appium:useNewWDA" : true,
         // "appium:usePrebuiltWDA" : true,
         'appium:connectionRetryTimeout': 60000,

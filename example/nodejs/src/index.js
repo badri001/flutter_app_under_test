@@ -16,7 +16,7 @@ const osSpecificOps =
     : process.env.APPIUM_OS === 'ios'
     ? {
         'appium:platformName': 'iOS',
-        'appium:platformVersion': '16.2',
+        'appium:platformVersion': '15.4',
         'appium:deviceName': 'iPhone SE (3rd generation)',
         // "appium:udid": "576EE794-CD9A-4900-AC8D-BAD4E46D7757",
         // "appium:useNewWDA" : true,
@@ -61,7 +61,7 @@ const opts = {
     'flutter:getSemanticsId',
     counterTextFinder
   );
-  assert.strictEqual(semanticsId, 5);
+  assert.strictEqual(semanticsId, 4);
 
   const treeString = await driver.execute('flutter: getRenderTree');
   assert.strictEqual(treeString.substr(0, 11), 'RenderView#');

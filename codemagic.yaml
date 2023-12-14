@@ -4,12 +4,21 @@
 workflows:
   default-workflow:
     name: Default Workflow
-    max_build_duration: 60
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - pattern: 'v[1234567890]*.[1234567890]*.*[1234567890]'
+          include: true
+    max_build_duration: 30
     environment:
-      flutter: default
+      groups:
+        - test
+      flutter: 3.13.9
       xcode: latest
       cocoapods: default
     scripts:
+      - echo "$test"
       - name: Installing the requirements
         script : | 
             npm install -g appium@next 

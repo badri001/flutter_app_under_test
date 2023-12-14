@@ -4,13 +4,16 @@ const wdio = require('webdriverio');
 const assert = require('assert');
 const find = require('appium-flutter-finder');
 
+
+
+
 const osSpecificOps =
   process.env.APPIUM_OS === 'android'
     ? {
         'appium:platformName': 'Android',
         'appium:deviceName': 'Pixel 2',
         // @todo support non-unix style path
-        'appium:app': "/home/badri/Documents/appium-flutter-driver/apps/android-real-debug.apk" // download local to run faster and save bandwith
+        'appium:app': `/home/badri/Documents/Flutter_apps/flutter_app_under_test/example/flutter_app_under_test/build/app/outputs/flutter-apk/app-debug.apk` // download local to run faster and save bandwith
         // app: 'https://github.com/truongsinh/appium-flutter-driver/releases/download/v0.0.4/android-real-debug.apk',
       }
     : process.env.APPIUM_OS === 'ios'
@@ -61,7 +64,7 @@ const opts = {
     'flutter:getSemanticsId',
     counterTextFinder
   );
-  assert.strictEqual(semanticsId, 4);
+  assert.strictEqual(semanticsId, 5);
 
   const treeString = await driver.execute('flutter: getRenderTree');
   assert.strictEqual(treeString.substr(0, 11), 'RenderView#');
@@ -86,7 +89,7 @@ const opts = {
   assert.strictEqual(await driver.getElementText(counterTextFinder), '0');
 
   //Long Press using flutter command on Increment button, it should visible 'increment' tooltip after longTap
-  await driver.execute('flutter:longTap', find.byValueKey('increment'), {durationMilliseconds: 10000, frequency: 30});
+  await driver.execute('flutter:longTap', find.byValueKey('increment'), {durationMilliseconds: 3000, frequency: 30});
 
   //Long Press using TouchAction with wait
   await driver.touchAction([
@@ -178,10 +181,10 @@ const opts = {
   await driver.elementClear(find.byType('TextField')); //It can Clear the text field
 
   await driver.elementClick(find.pageBack());
-  // await driver.execute(
-  //   'flutter:waitFor',
-  //   buttonFinder
-  // );
+  await driver.execute(
+    'flutter:waitFor',
+    buttonFinder
+  );
 
   // assert.strictEqual(
   //   await driver.getElementText(

@@ -15,3 +15,4 @@
 9. Modify the path for apk/ipa appropriately at https://github.com/appium-userland/appium-flutter-driver/blob/main/example/nodejs/src/index.js#L13
 
 10. either run `APPIUM_OS=android npm start` or `APPIUM_OS=ios npm start`
+np

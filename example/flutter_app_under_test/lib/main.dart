@@ -11,14 +11,14 @@ void main() {
   runApp(MyApp());
 }
 
-@widget
+@swidget
 Widget myApp() => MaterialApp(
       title: 'Counter App',
       home: MyHomePage(title: 'Counter App Home Page'),
     );
 
-@widget
-Widget myHomePage(BuildContext context, {String title}) => Scaffold(
+@swidget
+Widget myHomePage(BuildContext context, {required String title}) => Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
@@ -75,7 +75,7 @@ Widget myHomePage(BuildContext context, {String title}) => Scaffold(
       ),
     );
 
-@widget
+@swidget
 Widget secondPage() => ListView(
       padding: const EdgeInsets.all(8.0),
       children: <Widget>[
